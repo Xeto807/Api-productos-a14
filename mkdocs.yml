@@ -1,0 +1,13 @@
+site_name: API de productos
+
+nav:
+- Inicio: index.md
+- Instalación: instalacion.md
+- Arquitectura: arquitectura.md
+- Despliegue: despliegue.md
+- Operación: operacion.md
+- API: api.md
+
+plugins:
+  - search
+  - mermaid2

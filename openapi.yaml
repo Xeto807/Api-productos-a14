@@ -1,0 +1,69 @@
+openapi: "3.0.0"
+info:
+  title: "API de productos"
+  description: "API REST de ejemplo que devuelve productos almacenados en memoria."
+  version: "1.0.0"
+
+servers:
+  - url: http://localhost:3000
+    description: "Servidor local de desarrollo"
+
+paths:
+  /api/productos:
+    get:
+      summary: "Obtiene la lista de productos"
+      responses:
+        "200":
+          description: "Lista de productos"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Producto"
+
+  /api/productos/{id}:
+    get:
+      summary: "Obtiene un producto por su identificador"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: "Identificador del producto"
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: "Producto encontrado"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Producto"
+        "404":
+          description: "Producto no encontrado"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    Producto:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        nombre:
+          type: string
+          example: "Teclado"
+        precio:
+          type: number
+          example: 29.95
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "Producto no encontrado"

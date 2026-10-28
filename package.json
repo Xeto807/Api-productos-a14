@@ -1,0 +1,12 @@
+{
+  "name": "api-productos-a14",
+  "version": "1.0.0",
+  "description": "Mini API REST para la práctica A1.4 de DAW",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
